@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address=$_POST["ca"];
       
     //Email Validation   
-    $email = test_input($_POST["email"]);
+    $email = $_POST["email"];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
     }
@@ -111,18 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $PasswordErr="Passwords does not match.";
     }
 }  
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
 ?>  
   
-
-
-
-
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
         <div class="container">  
